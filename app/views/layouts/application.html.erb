@@ -18,20 +18,28 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-        <% if logged_in? %>
-          <%= link_to "Log Out", logout_path, method: :delete, class: "navbar-brand" %>
-          <%= link_to "See attractions", attractions_path, class: "navbar-brand" %>
-        <% else %>
-          <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
-          <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>
-        <% end %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <!-- <% if !logged_in? %>
-            <li><%= link_to 'Sign Up', new_user_path %></li>
-            <li><%= link_to 'Sign In', signin_path %></li>
-            <% end %> -->
+             <!--  nav here -->
+           <% if not logged_in? %>
+            <li>
+              <%= link_to 'Sign Up', '/users/new' %>
+            </li>
+            <li>
+              <%= link_to 'Sign In', signin_path %>
+            </li>
+           <% else %>
+            <li>
+              <%= link_to "Hello, #{current_user.name}!", user_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to "Attractions", attractions_path %>
+            </li>
+            <li>
+              <%= link_to "Log Out", logout_path %>
+            </li>
+           <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
