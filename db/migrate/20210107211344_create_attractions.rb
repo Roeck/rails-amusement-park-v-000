@@ -1,6 +1,5 @@
-class CreateAttractions < ActiveRecord::Migration
- # Write your migrations here
- def change
+class CreateAttractions < ActiveRecord::Migration[5.1]
+  def change
     create_table :attractions do |t|
       t.string :name
       t.integer :tickets
