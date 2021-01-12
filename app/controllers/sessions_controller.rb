@@ -1,6 +1,6 @@
-class SessionsController < ApplicationController 
+class SessionsController < ApplicationController
 
-  def new 
+  def new
   end
 
   def create
@@ -11,10 +11,10 @@ class SessionsController < ApplicationController
     else
       redirect_to signup_path
     end
-  end 
-  
-  def destroy 
+  end
+
+  def destroy
     session.destroy
     redirect_to root_path
-  end 
+  end
 end 
