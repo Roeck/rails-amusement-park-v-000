@@ -31,7 +31,6 @@ class AttractionsController < ApplicationController
     redirect_to attraction_path(@attraction)
   end
 
-
   private
     def attraction_params
       params.require(:attraction).permit(
